@@ -28,9 +28,11 @@ def print_tables():
     n = 0
     tables = len( driver.find_elements(By.CLASS_NAME,"mat-ripple"))
 
+
+    ##Altere o caminho "../../just/" para o caminho desejado
     data = datetime.now().strftime("%Y-%m-%d")
-    if not os.path.exists(data):
-        os.mkdir(data)
+    if not os.path.exists("../../just/" + data):
+        os.mkdir("../../just/" + data)
     
 
     while n != tables:
@@ -48,9 +50,9 @@ def print_tables():
         wait_element(driver,"/html/body/div[1]/root/mat-sidenav-container/mat-sidenav-content/tri-shell-panel-outlet/tri-extension-panel-outlet/mat-sidenav-container/mat-sidenav-content/div/div/div[1]/tri-shell/tri-extension-page-outlet/div[2]/report/exploration-container/div/div/docking-container/div/div/div/section/app-bar/div/div[2]/button[3]").click()
         wait_element(driver,"/html/body/div[2]/div[4]/div/div/div/button[1]").click(),sleep(1)
 
-        #Ajuste de arquivo
+        #Altere o caminho "../../just/" para o caminho desejado
         hora_formatada = datetime.now().strftime("%H-%M")
-        driver.save_screenshot(filename=f"{data}/{hora_formatada}_{nome_planilha}.png"),sleep(1)
+        driver.save_screenshot(filename=f"../../just/{data}/{hora_formatada}_{nome_planilha}.png"),sleep(1)
 
         body_element = driver.find_element(By.TAG_NAME,"body")
         body_element.send_keys(Keys.ESCAPE)
